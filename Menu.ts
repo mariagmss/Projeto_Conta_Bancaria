@@ -1,31 +1,43 @@
 import { Colors } from './src/util/Colors';
-import { Conta } from "./src/model/Conta";
 import { Input } from "./src/util/Input";
+import { ContaCorrente } from './src/model/ContaCorrente';
+import { ContaPoupanca } from './src/model/ContaPoupanca';
 
 export function main() {
 
     let opcao: number;
 
-    const c1 = new Conta(1, 1234, "Sofia", 1, 100000.00);
+    console.log("\nTestes - Classe Conta Corrente");
+    
+    const cc1 = new ContaCorrente(1, 5678, "Bianca", 1, 200000.00, 2000.00);
 
-    c1.visualizar();
-
-    // teste oara método sacar
-    console.log("Sacar 100,00: ", c1.sacar(100.00));
-    console.log("Sacar 200000.00: ", c1.sacar(200000.00));
-    console.log("Sacar 0.00: ", c1.sacar(0.00));
-
-    // teste para método depositar
-    console.log("Depositar -10.00: ");
-    c1.depositar(-10.00);
+    console.log("Sacar 100,00: ", cc1.sacar(100.00));
+    console.log("Sacar 200000.00: ", cc1.sacar(200000.00));
+    console.log("Sacar 0.00: ", cc1.sacar(0.00));
 
     console.log("Depositar 500.00: ");
-    c1.depositar(500.00);
+    cc1.depositar(500.00);
 
-    c1.visualizar();
+    cc1.visualizar();
 
-    // console.log("O Titular da Conta é: ", c1.titular);
-    // console.log("O Saldo da Conta é: ", c1.saldo);
+    console.log("\nTestes - Classe Conta Poupança");
+    
+    const cp1 = new ContaPoupanca(2, 1234, "Paula", 1, 2000.00, 12);
+
+    cp1.visualizar();
+
+    console.log("\nSacar 1000.00");
+    console.log("\n", cp1.sacar(1000.00));
+
+    console.log("\nSacar 2100.00");
+    console.log("\n", cp1.sacar(2100.00));
+
+    console.log("\nDepositar 500.00");
+    cp1.depositar(500.00);
+
+    cp1.visualizar();
+
+    console.log("\n");
 
     while (true) {
       console.log(Colors.fg.magentastrong,"┌─────────────────────────────────────────────────────────┐");
