@@ -1,5 +1,6 @@
 import { Colors } from '../util/Colors'
 import { Conta } from './Conta'
+import { formatarMoeda } from "../util/Currency";
 
 export class ContaCorrente extends Conta {
     
@@ -50,6 +51,6 @@ export class ContaCorrente extends Conta {
 
 	public visualizar(): void {
 		super.visualizar()
-		console.log(`Limite da conta: R$ ${this._limite.toFixed(2)}`)
+		console.log(`Limite da conta: ${formatarMoeda(this._limite)}`)
 	}
 }
